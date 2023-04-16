@@ -46,6 +46,7 @@ float SPIRV_OVERLOADABLE SPIRV_OCL_BUILTIN(atan2, _f32_f32, )( float y, float x 
 
         result = ( y > 0 ) ? py : ny;
         result = ( x > 0 ) ? px : result;
+        result = SPIRV_OCL_BUILTIN(fabs, _f32, )(result > M_PI_F) ? px : result;
     }
     else
     {
